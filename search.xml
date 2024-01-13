@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>多查多练不行重来</title>
-    <url>/2024/01/13/Hexo%E8%BF%90%E8%90%A5%E6%8C%87%E5%8D%97/</url>
+    <url>/Astral.github.io/2024/01/13/Hexo%E8%BF%90%E8%90%A5%E6%8C%87%E5%8D%97/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>工具</category>
@@ -13,7 +13,7 @@
   </entry>
   <entry>
     <title>JAVA的自我修炼</title>
-    <url>/2024/01/13/JAVA%E4%B8%80%E5%AD%A6%E5%88%B0%E5%BA%95/</url>
+    <url>/Astral.github.io/2024/01/13/JAVA%E4%B8%80%E5%AD%A6%E5%88%B0%E5%BA%95/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>程序语言</category>
@@ -24,7 +24,7 @@
   </entry>
   <entry>
     <title>Linux太揪心</title>
-    <url>/2024/01/13/Linux%E4%B8%8D%E5%AD%A6%E4%B8%8D%E8%A1%8C/</url>
+    <url>/Astral.github.io/2024/01/13/Linux%E4%B8%8D%E5%AD%A6%E4%B8%8D%E8%A1%8C/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>Linux系统管理</category>
@@ -35,7 +35,7 @@
   </entry>
   <entry>
     <title>pwngdb和pwndbg联合使用</title>
-    <url>/2024/01/06/pwngdb%E5%92%8Cpwndbg%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/</url>
+    <url>/Astral.github.io/2024/01/06/pwngdb%E5%92%8Cpwndbg%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>编译程序——启动GDB——运行程序——调试程序</p>
 <p>编译程序</p>
 <p>使用gcc编译C语言程序，并添加-g选项，以生成调试信息：</p>
@@ -92,7 +92,7 @@
   </entry>
   <entry>
     <title>pwn学习笔记</title>
-    <url>/2024/01/06/pwn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <url>/Astral.github.io/2024/01/06/pwn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h2 id="基础：-C语言-汇编语言-python，操作系统-Linux系统管理"><a href="#基础：-C语言-汇编语言-python，操作系统-Linux系统管理" class="headerlink" title="基础： C语言  汇编语言   python，操作系统  Linux系统管理"></a>基础： C语言  汇编语言   python，操作系统  Linux系统管理</h2><h2 id="工具：IDApro-GDB-pwntools-pwndbg"><a href="#工具：IDApro-GDB-pwntools-pwndbg" class="headerlink" title="工具：IDApro     GDB    pwntools     pwndbg"></a>工具：IDApro     GDB    pwntools     pwndbg</h2><h1 id="pwn环境的搭建："><a href="#pwn环境的搭建：" class="headerlink" title="pwn环境的搭建："></a>pwn环境的搭建：</h1><h2 id="1-python2-python3代码："><a href="#1-python2-python3代码：" class="headerlink" title="1.python2,python3代码："></a>1.python2,python3代码：</h2><p>sudo apt install python2</p>
 <p>sudo apt install python3-pip</p>
 <h2 id="2-ubuntu怎么切换到root用户，使用su-root命令，去切换到root权限，会提示输入密码，可是如何也输不对，提示“Authentication-failure”或者是提示认证失败。"><a href="#2-ubuntu怎么切换到root用户，使用su-root命令，去切换到root权限，会提示输入密码，可是如何也输不对，提示“Authentication-failure”或者是提示认证失败。" class="headerlink" title="2.ubuntu怎么切换到root用户，使用su root命令，去切换到root权限，会提示输入密码，可是如何也输不对，提示“Authentication failure”或者是提示认证失败。"></a>2.ubuntu怎么切换到root用户，使用su root命令，去切换到root权限，会提示输入密码，可是如何也输不对，提示“Authentication failure”或者是提示认证失败。</h2><p>该错误有两种情况一个是密码错了，另一种就是新安装好的Linux系统，暂时还没有给root设置密码。</p>
@@ -214,7 +214,7 @@
   </entry>
   <entry>
     <title>每个人都是一座孤岛</title>
-    <url>/2024/01/13/%E5%AD%A4%E5%B2%9B%E6%97%A5%E8%AE%B0/</url>
+    <url>/Astral.github.io/2024/01/13/%E5%AD%A4%E5%B2%9B%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[]]></content>
       <categories>
         <category>日志</category>
@@ -225,7 +225,7 @@
   </entry>
   <entry>
     <title>汇编语言初识笔记</title>
-    <url>/2024/01/06/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%88%9D%E8%AF%86%E7%AC%94%E8%AE%B0/</url>
+    <url>/Astral.github.io/2024/01/06/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%88%9D%E8%AF%86%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>在x86-64架构的CPU中，rdi、rsi和rdx是通用寄存器，它们在函数调用和系统调用中扮演重要角色。</p>
 <p>在Linux 64位系统中，函数参数通常通过寄存器传递，其中rdi、rsi、rdx、rcx、r8 和 r9 分别用于传递前6个整型参数。而在这些寄存器中，rdi 通常用于存储第一个参数，rsi 用于存储第二个参数，rdx 用于存储第三个参数。</p>
 <p>举个例子，如果你在汇编中调用一个C语言函数，你可能会看到类似下面的代码：</p>
