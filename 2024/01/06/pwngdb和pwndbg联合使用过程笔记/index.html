@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#4a90e2"><meta name="author" content="靖川学长"><meta name="copyright" content="靖川学长"><meta name="generator" content="Hexo 7.0.0"><meta name="theme" content="hexo-theme-yun"><title>pwngdb和pwndbg联合使用 | Astral</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/prism-theme-vars/base.css"><script src="https://fastly.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="icon" type="image/png" href="/favicon.ico"><link rel="mask-icon" href="/favicon.ico" color="#4a90e2"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://fastly.jsdelivr.net/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"example.com","root":"/","title":"善始亦善终","version":"1.10.11","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://el-bot-api.vercel.app/api/words/young"},"local_search":{"path":"/search.xml"},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"fireworks":{"colors":["255, 0, 0","255, 140, 0","255, 255, 0","0, 255, 0","0, 191, 255","128, 0, 128"]},"vendors":{"host":"https://fastly.jsdelivr.net/npm/","darken":"https://fastly.jsdelivr.net/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><meta name="description" content="编译程序——启动GDB——运行程序——调试程序 编译程序 使用gcc编译C语言程序，并添加-g选项，以生成调试信息： 1gcc -g -o program program.c  启动GDB 在终端中输入以下命令来启动GDB，并将可执行文件作为参数传递给它： 1gdb program  运行程序 1run  调试程序 程序开始执行后，你可以使用以下命令进行调试：  next：执行下一行代码。 ste">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pwngdb和pwndbg联合使用">
+<meta property="og:url" content="http://example.com/2024/01/06/pwngdb%E5%92%8Cpwndbg%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Astral">
+<meta property="og:description" content="编译程序——启动GDB——运行程序——调试程序 编译程序 使用gcc编译C语言程序，并添加-g选项，以生成调试信息： 1gcc -g -o program program.c  启动GDB 在终端中输入以下命令来启动GDB，并将可执行文件作为参数传递给它： 1gdb program  运行程序 1run  调试程序 程序开始执行后，你可以使用以下命令进行调试：  next：执行下一行代码。 ste">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-05T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-01-13T05:29:08.411Z">
+<meta property="article:author" content="靖川学长">
+<meta property="article:tag" content="工具">
+<meta name="twitter:card" content="summary"><script>(function() {
+  if (CONFIG.mode !== 'auto') return
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://fastly.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info mickey-mouse"><a class="site-author-avatar" href="/about/" title="靖川学长"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="靖川学长"><span class="site-author-status" title="无限进步！">🧧</span></a><div class="site-author-name"><a href="/about/">靖川学长</a></div><a class="site-name" href="/about/site.html">Astral</a><sub class="site-subtitle"></sub><div class="site-description"></div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="我的主页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">7</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:folder-2-line"></span></span><span class="site-state-item-count">5</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">8</span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://yun.yunyoujun.cn" title="建站方法"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:settings-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:genderless-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%88%E7%9A%84%E5%BC%80%E5%90%AF%E5%92%8C%E9%94%80%E6%AF%81%E3%80%81%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8%E7%90%86%E8%A7%A3"><span class="toc-number">1.1.</span> <span class="toc-text">栈的开启和销毁、函数的调用理解</span></a></li></ol></li></ol></div></div></div><div class="tag-cloud"><div class="tag-cloud-tags"><a href="/tags/Hexo/" style="font-size: 30px; color: #fdcb6e">Hexo</a> <a href="/tags/JAVA/" style="font-size: 30px; color: #fdcb6e">JAVA</a> <a href="/tags/ctf-pwn-%E5%88%AB%E9%97%AE%EF%BC%8C%E9%97%AE%E5%B0%B1%E6%98%AF%E7%9E%8E%E5%86%99%E7%9A%84/" style="font-size: 12px; color: #00b894">ctf-pwn,别问，问就是瞎写的</a> <a href="/tags/linux/" style="font-size: 30px; color: #fdcb6e">linux</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 30px; color: #fdcb6e">工具</a> <a href="/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" style="font-size: 30px; color: #fdcb6e">汇编语言</a> <a href="/tags/%E7%AC%94%E8%AE%B0/" style="font-size: 30px; color: #fdcb6e">笔记</a> <a href="/tags/%E9%9A%8F%E5%BF%83/" style="font-size: 30px; color: #fdcb6e">随心</a></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#4a90e2;"><link itemprop="mainEntityOfPage" href="http://example.com/2024/01/06/pwngdb%E5%92%8Cpwndbg%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="靖川学长"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="Astral"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">pwngdb和pwndbg联合使用</h1><div class="post-meta"><div class="post-time"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <time title="创建时间：2024-01-06 00:00:00" itemprop="dateCreated datePublished" datetime="2024-01-06T00:00:00+08:00">2024-01-06</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-2-line"></span></span> <time title="修改时间：2024-01-13 13:29:08" itemprop="dateModified" datetime="2024-01-13T13:29:08+08:00">2024-01-13</time></div><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><span class="icon iconify" data-icon="ri:folder-line"></span></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/pwn/" style="--text-color:#ff5722" itemprop="url" rel="index"><span itemprop="text">pwn</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/%E5%B7%A5%E5%85%B7/" style="--text-color:#8892BF"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">工具</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>编译程序——启动GDB——运行程序——调试程序</p>
+<p>编译程序</p>
+<p>使用gcc编译C语言程序，并添加-g选项，以生成调试信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -g -o program program.c</span><br></pre></td></tr></table></figure>
+
+<p>启动GDB</p>
+<p>在终端中输入以下命令来启动GDB，并将可执行文件作为参数传递给它：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gdb program</span><br></pre></td></tr></table></figure>
+
+<p>运行程序</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">run</span><br></pre></td></tr></table></figure>
+
+<p>调试程序</p>
+<p>程序开始执行后，你可以使用以下命令进行调试：</p>
+<ul>
+<li>next：执行下一行代码。</li>
+<li>step：进入函数并调试该函数。</li>
+<li>finish：从当前函数返回到调用它的函数，并在那里暂停。</li>
+<li>break：在某个位置上设置断点。</li>
+<li>watch：在某个变量上设置监视点。</li>
+<li>print：打印变量的值。</li>
+</ul>
+<p>退出GDB</p>
+<p>使用quit命令退出GDB：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="栈的开启和销毁、函数的调用理解"><a href="#栈的开启和销毁、函数的调用理解" class="headerlink" title="栈的开启和销毁、函数的调用理解"></a>栈的开启和销毁、函数的调用理解</h2><p>当一个函数被调用时，程序会将当前函数的返回地址、参数和局部变量等信息推入栈中，然后跳转到被调用的函数。被调用的函数使用这些信息执行操作，完了之后再从栈中弹出这些信息，返回到原始的函数。</p>
+<p>以下是一些关于函数调用和栈的开启和销毁的基本概念和操作：</p>
+<ol>
+<li>函数调用</li>
+</ol>
+<p>在C语言中，你可以使用函数名来调用函数。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">复制代码int result = add(2, 3);</span><br></pre></td></tr></table></figure>
+
+<p>这里我们调用了一个名为add的函数，并传递了两个参数2和3。被调用的函数返回一个值，该值存储在result变量中。</p>
+<p>栈的开启和销毁</p>
+<p>在函数调用过程中，程序需要在堆栈上保留一些信息，包括返回地址、参数和局部变量等。这些信息通常在函数开头时被放入堆栈中，并在函数结束时从堆栈中弹出。这个过程称为栈的开启和销毁。</p>
+<p>在C语言中，你不需要手动开启或销毁堆栈，编译器会自动完成这些工作。它会生成代码，在函数开头向堆栈中推送所需的信息，并在函数结束时从堆栈中弹出这些信息。这个过程是透明的，你只需要调用函数即可。</p>
+<p>递归函数</p>
+<p>递归函数是一种特殊的函数，它在其自身内部调用自己。在递归调用期间，每个函数调用都会将新的信息推入堆栈中，因此堆栈的大小会不断增加。当递归调用结束时，每个函数调用都会从堆栈中弹出信息，因此堆栈的大小会逐渐减小。</p>
+<p>当递归调用过多时，堆栈可能会耗尽，导致堆栈溢出错误。为了避免这种情况，你可以使用尾递归优化或者循环来代替递归。</p>
+<p>总之，函数调用和栈的开启和销毁是C语言中非常基本的概念和操作。在编写C程序时，你需要注意函数调用、堆栈的使用和内存的管理，以避免出现错误和漏洞。</p>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><span class="icon iconify" data-icon="ri:hand-coin-line"></span></span><div id="reward-comment">我要站着把钱挣了！</div><div id="qr" style="display:none;"><div style="display:inline-block"><a href="/images/zhifubao.jpg"><img loading="lazy" src="/images/zhifubao.jpg" alt="支付宝" title="支付宝"></a><div><span style="color:#00A3EE"><span class="icon iconify" data-icon="ri:alipay-line"></span></span></div></div><div style="display:inline-block"><a href="/images/weixin.jpg"><img loading="lazy" src="/images/weixin.jpg" alt="微信支付" title="微信支付"></a><div><span style="color:#2DC100"><span class="icon iconify" data-icon="ri:wechat-pay-line"></span></span></div></div></div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>靖川学长</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="http://example.com/2024/01/06/pwngdb%E5%92%8Cpwndbg%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/" title="pwngdb和pwndbg联合使用">http://example.com/2024/01/06/pwngdb%E5%92%8Cpwndbg%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/2024/01/13/JAVA%E4%B8%80%E5%AD%A6%E5%88%B0%E5%BA%95/" rel="prev" title="JAVA的自我修炼"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">JAVA的自我修炼</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/2024/01/06/pwn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="pwn学习笔记"><span class="post-nav-text">pwn学习笔记</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2024 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> 靖川学长</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.0.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.10.11</span></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#4a90e2" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:search-line"></span></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="https://fastly.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js"></script><script src="/js/search/local-search.js" defer type="module"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><span class="icon iconify" data-icon="ri:close-line"></span></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="搜索..." value=""></div><div class="search-result-container"></div></div></body></html>
